@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     this.dataapi.getAllEmployees().subscribe((result: EmployeeExt[]) => {
       this.employees = result;
     });
-  }
+  } 
 
   deleteEmployee() {
     if(this.selectedEmp){
