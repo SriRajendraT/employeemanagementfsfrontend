@@ -13,8 +13,12 @@ import { StorageService } from '../services/storage service/storage.service';
 export class HomeComponent implements OnInit {
   employees: EmployeeExt[] = [];
   selectedEmp: EmployeeExt | null = null;
-  clickedView:boolean=false;
-  constructor(private dataapi: DataApiService, private router: Router,private storage:StorageService) {}
+  clickedView: boolean = false;
+  constructor(
+    private dataapi: DataApiService,
+    private router: Router,
+    private storage: StorageService
+  ) {}
   ngOnInit(): void {
     console.log('Home Component');
     this.getAllEmployees();
@@ -24,20 +28,22 @@ export class HomeComponent implements OnInit {
     this.dataapi.getAllEmployees().subscribe((result: EmployeeExt[]) => {
       this.employees = result;
     });
-  } 
+  }
 
   deleteEmployee() {
-    if(this.selectedEmp){
-      this.dataapi.deleteEmployee(this.selectedEmp?.emp_id).subscribe((result: boolean) => {
-        if (result) {
-          this.employees = this.employees.filter((x) => x.emp_id !== this.selectedEmp?.emp_id);
-          this.selectedEmp=null;
-          // this.router.navigate(['/home']);
-        }
-      });
+    if (this.selectedEmp) {
+      this.dataapi
+        .deleteEmployee(this.selectedEmp?.emp_id)
+        .subscribe((result: boolean) => {
+          if (result) {
+            this.employees = this.employees.filter(
+              (x) => x.emp_id !== this.selectedEmp?.emp_id
+            );
+            this.selectedEmp = null;
+            // this.router.navigate(['/home']);
+          }
+        });
     }
-    
-   
   }
 
   getEmployeeDetailsById(id: number) {
@@ -46,17 +52,17 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onView(id:number){
-    this.storage.set('empbyid',JSON.stringify({id:id,isView:true}));
+  onView(id: number) {
+    this.storage.set('empbyid', JSON.stringify({ id: id, isView: true }));
     this.router.navigate(['/signup']);
   }
 
-  onAddEmployee(){
-    this.storage.set('empbyid',"");
+  onAddEmployee() {
+    this.storage.set('empbyid', '');
     this.router.navigate(['/signup']);
   }
-  onEdit(id:number){
-    this.storage.set('empbyid',JSON.stringify({id:id,isView:false}));
+  onEdit(id: number) {
+    this.storage.set('empbyid', JSON.stringify({ id: id, isView: false }));
     this.router.navigate(['/signup']);
   }
 }
