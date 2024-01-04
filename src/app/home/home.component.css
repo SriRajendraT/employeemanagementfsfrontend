@@ -10,7 +10,7 @@
 }
 .emptitle{
     text-align: center;
-    
+    color: whitesmoke !important;
 }
 .modal-body{
     display: flex;
