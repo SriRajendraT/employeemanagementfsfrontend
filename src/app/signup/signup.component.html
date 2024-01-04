@@ -1,10 +1,12 @@
 <!-- <p>signup works!</p> -->
 <div class="container">
-  <div>
-    <h3 class="text-center text-success">{{ title }} Employee</h3>
-  </div>
+  
   <div class="row d-center">
-    <div class="col-md-6 ">
+    
+    <div class="col-md-6  bgblur ">
+      <div>
+        <h3 class="text-center text-success">{{ title }} Employee</h3>
+      </div>
       <form [formGroup]="empFormGroup">
         <div class="form-group mb-3">
           <label for="emp_name" class="form-label">Name</label>
@@ -14,6 +16,7 @@
             id="emp_name"
             class="form-control"
           />
+          <!-- <app-formsvalidator></app-formsvalidator> -->
         </div>
         <div class="form-group mb-3">
           <label for="emp_email" class="form-label">Email</label>
@@ -23,6 +26,7 @@
             id="emp_email"
             class="form-control"
           />
+          <!-- <app-formsvalidator></app-formsvalidator> -->
         </div>
         <div class="form-group mb-3">
           <label for="emp_phone" class="form-label">Phone Number</label>
@@ -32,6 +36,7 @@
             id="emp_phone"
             class="form-control"
           />
+          <!-- <app-formsvalidator></app-formsvalidator> -->
         </div>
         <div class="form-group mb-3">
           <label for="emp_salary" class="form-label">Salary</label>
@@ -41,11 +46,12 @@
             id="emp_salary"
             class="form-control"
           />
+          <!-- <app-formsvalidator></app-formsvalidator> -->
         </div>
         <div class="form-group mb-3">
           <label for="" class="form-label">Gender</label>
           <div *ngFor="let gnd of genders">
-            <input
+            <input 
               type="radio"
               [value]="gnd.gender_id"
               formControlName="emp_gender"
@@ -53,6 +59,7 @@
             />
             <label for="emp_gender">&nbsp; {{ gnd.gender_name }}</label>
           </div>
+          <!-- <app-formsvalidator></app-formsvalidator> -->
         </div>
         <div class="form-group mb-3">
           <label for="" class="form-label">Department: &nbsp;&nbsp;</label>
@@ -62,6 +69,7 @@
               {{ dept.dept_name }}
             </option>
           </select>
+          <!-- <app-formsvalidator></app-formsvalidator> -->
         </div>
         <div class="form-group mb-3">
           <label for="" class="form-label">State: &nbsp;&nbsp;</label>
@@ -76,6 +84,7 @@
               {{ state.state_name }}
             </option>
           </select>
+          <!-- <app-formsvalidator></app-formsvalidator> -->
         </div>
         <div class="form-group mb-3">
           <label for="">City &nbsp;&nbsp;</label>
@@ -85,6 +94,7 @@
               {{ city.city_name }}
             </option>
           </select>
+          <!-- <app-formsvalidator></app-formsvalidator> -->
         </div>
         <div class="btn-div mb-5">
           <button
