@@ -22,7 +22,10 @@
 }
 table.tblbg,table.tblbg th,table.tblbg tr,table.tblbg td{
     background: rgba(46, 43, 43, 0.13) !important;
-    color: rgb(24, 9, 9) !important;
+    color: #3a0000 !important;
+}
+.tblbg b{
+    color: red !important;
 }
 table.tblbg{
     backdrop-filter: blur(10px);
@@ -48,4 +51,7 @@ table.tblbg{
     backdrop-filter: blur(10px);
     border-radius: 10px;
     overflow: hidden;
+}
+.popup b{
+    color: #6e0d28db;
 }
